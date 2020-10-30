@@ -343,7 +343,6 @@ class S3FS(FS):
         try:
             with s3errors(path):
                 obj = self.s3.Object(self._bucket_name, _key)
-                obj.load()
         except errors.ResourceNotFound:
             with s3errors(path):
                 obj = self.s3.Object(self._bucket_name, _key + self.delimiter)
